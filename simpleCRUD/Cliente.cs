@@ -22,7 +22,7 @@ namespace simpleCRUD
         //metodo para retornar los registros de la tabla Cliente
         public MySqlDataReader getAllCliente()
         {
-            string query = "SELECT clienteId,nombres,address,telephon,mobile FROM cliente";
+            string query = "SELECT clienteId,names,address,telephon,mobile FROM cliente";
 
             //llamado al metodo select de la clase Crud
             return crud.select(query);
