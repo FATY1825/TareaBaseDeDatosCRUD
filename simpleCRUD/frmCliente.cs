@@ -171,7 +171,14 @@ namespace simpleCRUD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente(); //nueva instancia de la clase cliente 
+            Cliente cliente = new Cliente(); //nueva instancia de la clase cliente
+
+            //Evaluar la accion
+            if(action == "edit")
+            {
+                cliente._clienteId = Convert.ToInt32(txtId.Text);
+            }
+                                             
 
             cliente._names = txtNames.Text;
             cliente._address = txtAddress.Text;
@@ -187,8 +194,19 @@ namespace simpleCRUD
                 {
                     MetroFramework.MetroMessageBox.Show(this, "¡Los datos se han guardado exitosamente!",
                         "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "¡Los datos no se han guardado!",
+                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                clearControls();
+                controlsDisable();
+                fillDataGridView();
+                tabs.TabPages.Remove(tabForm);
+                tabs.TabPages.Add(tabData);
+                tabs.TabPages[0].Text = "CLIENTE LIST";
             }
 
         }
@@ -197,6 +215,57 @@ namespace simpleCRUD
         {
 
         }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            tabs.TabPages.Remove(tabData);
+            tabs.TabPages.Add(tabForm);
+            tabs.TabPages[0].Text = "EDIT CLIENTE";
+            controlsEnable();
+
+            txtId.Visible = true;
+            txtId.ReadOnly = true;
+            lblId.Visible = true;
+
+            //pasar los valores del datagridview hacia los texbox
+            txtId.Text = dtgCliente.CurrentRow.Cells[0].Value.ToString();
+            txtNames.Text = dtgCliente.CurrentRow.Cells[1].Value.ToString();
+            txtAddress.Text = dtgCliente.CurrentRow.Cells[2].Value.ToString();
+            txtTelephon.Text = dtgCliente.CurrentRow.Cells[3].Value.ToString();
+            txtMobile.Text = dtgCliente.CurrentRow.Cells[4].Value.ToString();
+
+            //Enviar la accion 
+            action = "edit";
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            string mensaje = "¿Esta seguro que desea eliminar el registro?";
+            if (MetroFramework.MetroMessageBox.Show(this, mensaje, "CONFIRMACION",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Cliente cliente = new Cliente();
+                cliente._clienteId = Convert.ToInt32(dtgCliente.CurrentRow.Cells[0].Value);
+
+                //llamado al metodo deleteCliente() de la clase Cliente 
+                if(cliente.deleteCliente())
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "¡Los datos se han eliminado exitosamente!",
+                     "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //actualizacion del datagridview
+                    fillDataGridView();
+                }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "¡Los datos no se han podido eliminar!",
+                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+       
     }
+
 
 }

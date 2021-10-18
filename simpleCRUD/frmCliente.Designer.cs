@@ -30,8 +30,8 @@ namespace simpleCRUD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -130,7 +130,7 @@ namespace simpleCRUD
             this.metroLabel3.TabIndex = 18;
             this.metroLabel3.Text = "Direccion";
             // 
-            // txtNombre
+            // txtNames
             // 
             // 
             // 
@@ -259,14 +259,14 @@ namespace simpleCRUD
             this.dtgCliente.BackgroundColor = System.Drawing.Color.White;
             this.dtgCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCliente.ContextMenuStrip = this.actions;
             this.dtgCliente.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -274,8 +274,8 @@ namespace simpleCRUD
             this.dtgCliente.MultiSelect = false;
             this.dtgCliente.Name = "dtgCliente";
             this.dtgCliente.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgCliente.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgCliente.Size = new System.Drawing.Size(772, 263);
             this.dtgCliente.TabIndex = 32;
@@ -292,7 +292,7 @@ namespace simpleCRUD
             this.actions.Name = "actions";
             this.actions.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.actions.ShowImageMargin = false;
-            this.actions.Size = new System.Drawing.Size(93, 52);
+            this.actions.Size = new System.Drawing.Size(156, 74);
             this.actions.Style = MetroFramework.MetroColorStyle.Blue;
             this.actions.Text = "Actions";
             this.actions.UseCustomBackColor = true;
@@ -309,6 +309,7 @@ namespace simpleCRUD
             this.edit.Size = new System.Drawing.Size(155, 24);
             this.edit.Text = "Edit";
             this.edit.ToolTipText = "Edit Book";
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // delete
             // 
@@ -318,6 +319,7 @@ namespace simpleCRUD
             this.delete.Size = new System.Drawing.Size(155, 24);
             this.delete.Text = "Delete";
             this.delete.ToolTipText = "Delete Book";
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // btnCancel
             // 

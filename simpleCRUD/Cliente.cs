@@ -38,8 +38,28 @@ namespace simpleCRUD
                 crud.executeQuery(query); //llamado al metodo executeQuery de la clase crud
                 return true;
             }
+            else if (action == "edit")
+            {
+                string query = "UPDATE cliente SET"
+                    + "names = '" + _names + "',"
+                    + "address = '" + _address + "',"
+                    + "telephon = '" + _telephon + "',"
+                    + "mobile = '" + _mobile + "',"
+                    + "WHERE "
+                    + "clienteId = '" + _clienteId + "'";
+                crud.executeQuery(query);
+                return true;
+            }
+
             return false;
 
+        }
+
+        public Boolean deleteCliente()
+        {
+            string query = "DELETE FROM cliente WHRERE clienteId = '" + _clienteId + "'";
+            crud.executeQuery(query);
+            return true;
         }
     }
 }
