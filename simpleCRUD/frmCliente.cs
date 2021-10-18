@@ -171,6 +171,25 @@ namespace simpleCRUD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Cliente cliente = new Cliente(); //nueva instancia de la clase cliente 
+
+            cliente._names = txtNames.Text;
+            cliente._address = txtAddress.Text;
+            cliente._telephon = txtTelephon.Text;
+            cliente._mobile = txtMobile.Text;
+
+            string mensaje = "¿Esta seguro que desea guardar el registro?";
+            if(MetroFramework.MetroMessageBox.Show(this, mensaje, "CONFIRMACION", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //LLAMAR AL METODO PARA GUARDAR 
+                if (cliente.newEditCliente(action))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "¡Los datos se han guardado exitosamente!",
+                        "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
 
         }
 

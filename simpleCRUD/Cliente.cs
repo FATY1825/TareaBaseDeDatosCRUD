@@ -13,8 +13,8 @@ namespace simpleCRUD
         public int _clienteId { get; set; }
         public string _names { get; set; }
         public string _address { get; set; }
-        public int _telephon { get; set; }
-        public int _mobile { get; set; }
+        public string _telephon { get; set; }
+        public string _mobile { get; set; }
 
         //instancias a la clase Crud
         private Crud crud = new Crud();
@@ -35,9 +35,10 @@ namespace simpleCRUD
             {
                 string query = "INSERT INTO cliente(names, address, telephon, mobile)" + 
                     "VALUES ('"+ _names +"', '"+ _address +"', '"+ _telephon +"', '"+ _mobile +"')";
-
+                crud.executeQuery(query); //llamado al metodo executeQuery de la clase crud
+                return true;
             }
-            else if ()
+            return false;
 
         }
     }
