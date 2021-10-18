@@ -171,44 +171,55 @@ namespace simpleCRUD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente(); //nueva instancia de la clase cliente
 
-            //Evaluar la accion
-            if(action == "edit")
+            if (txtNames.Text == "")
             {
-                cliente._clienteId = Convert.ToInt32(txtId.Text);
+                MetroFramework.MetroMessageBox.Show(this, "Debe escribir el titulo", "VAÑIDACION",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNames.Focus();
+                txtNames.BackColor = Color.Red;
+
             }
-                                             
-
-            cliente._names = txtNames.Text;
-            cliente._address = txtAddress.Text;
-            cliente._telephon = txtTelephon.Text;
-            cliente._mobile = txtMobile.Text;
-
-            string mensaje = "¿Esta seguro que desea guardar el registro?";
-            if(MetroFramework.MetroMessageBox.Show(this, mensaje, "CONFIRMACION", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else
             {
-                //LLAMAR AL METODO PARA GUARDAR 
-                if (cliente.newEditCliente(action))
+                Cliente cliente = new Cliente(); //nueva instancia de la clase cliente
+
+                //Evaluar la accion
+                if (action == "edit")
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "¡Los datos se han guardado exitosamente!",
-                        "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MetroFramework.MetroMessageBox.Show(this, "¡Los datos no se han guardado!",
-                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cliente._clienteId = Convert.ToInt32(txtId.Text);
                 }
 
-                clearControls();
-                controlsDisable();
-                fillDataGridView();
-                tabs.TabPages.Remove(tabForm);
-                tabs.TabPages.Add(tabData);
-                tabs.TabPages[0].Text = "CLIENTE LIST";
-            }
 
+                cliente._names = txtNames.Text;
+                cliente._address = txtAddress.Text;
+                cliente._telephon = txtTelephon.Text;
+                cliente._mobile = txtMobile.Text;
+
+                string mensaje = "¿Esta seguro que desea guardar el registro?";
+                if (MetroFramework.MetroMessageBox.Show(this, mensaje, "CONFIRMACION",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //LLAMAR AL METODO PARA GUARDAR 
+                    if (cliente.newEditCliente(action))
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "¡Los datos se han guardado exitosamente!",
+                            "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "¡Los datos no se han guardado!",
+                            "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    clearControls();
+                    controlsDisable();
+                    fillDataGridView();
+                    tabs.TabPages.Remove(tabForm);
+                    tabs.TabPages.Add(tabData);
+                    tabs.TabPages[0].Text = "CLIENTE LIST";
+                }
+            }
         }
 
         private void actions_Opening(object sender, CancelEventArgs e)
