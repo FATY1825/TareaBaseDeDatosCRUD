@@ -37,7 +37,7 @@ namespace simpleCRUD
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.txtAddress = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.txtNombre = new MetroFramework.Controls.MetroTextBox();
+            this.txtNames = new MetroFramework.Controls.MetroTextBox();
             this.txtId = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.lblId = new MetroFramework.Controls.MetroLabel();
@@ -52,9 +52,9 @@ namespace simpleCRUD
             this.btnSave = new MetroFramework.Controls.MetroButton();
             this.tabs = new MetroFramework.Controls.MetroTabControl();
             this.tabForm = new MetroFramework.Controls.MetroTabPage();
-            this.tabData = new MetroFramework.Controls.MetroTabPage();
-            this.txtTelephon = new MetroFramework.Controls.MetroTextBox();
             this.txtMobile = new MetroFramework.Controls.MetroTextBox();
+            this.txtTelephon = new MetroFramework.Controls.MetroTextBox();
+            this.tabData = new MetroFramework.Controls.MetroTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCliente)).BeginInit();
             this.actions.SuspendLayout();
             this.tabs.SuspendLayout();
@@ -135,30 +135,30 @@ namespace simpleCRUD
             // 
             // 
             // 
-            this.txtNombre.CustomButton.Image = null;
-            this.txtNombre.CustomButton.Location = new System.Drawing.Point(281, 1);
-            this.txtNombre.CustomButton.Name = "";
-            this.txtNombre.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtNombre.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtNombre.CustomButton.TabIndex = 1;
-            this.txtNombre.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtNombre.CustomButton.UseSelectable = true;
-            this.txtNombre.CustomButton.Visible = false;
-            this.txtNombre.Lines = new string[0];
-            this.txtNombre.Location = new System.Drawing.Point(210, 69);
-            this.txtNombre.MaxLength = 32767;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PasswordChar = '\0';
-            this.txtNombre.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.SelectionLength = 0;
-            this.txtNombre.SelectionStart = 0;
-            this.txtNombre.ShortcutsEnabled = true;
-            this.txtNombre.Size = new System.Drawing.Size(303, 23);
-            this.txtNombre.TabIndex = 17;
-            this.txtNombre.UseSelectable = true;
-            this.txtNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtNombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNames.CustomButton.Image = null;
+            this.txtNames.CustomButton.Location = new System.Drawing.Point(281, 1);
+            this.txtNames.CustomButton.Name = "";
+            this.txtNames.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNames.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNames.CustomButton.TabIndex = 1;
+            this.txtNames.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNames.CustomButton.UseSelectable = true;
+            this.txtNames.CustomButton.Visible = false;
+            this.txtNames.Lines = new string[0];
+            this.txtNames.Location = new System.Drawing.Point(210, 69);
+            this.txtNames.MaxLength = 32767;
+            this.txtNames.Name = "txtNames";
+            this.txtNames.PasswordChar = '\0';
+            this.txtNames.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNames.SelectedText = "";
+            this.txtNames.SelectionLength = 0;
+            this.txtNames.SelectionStart = 0;
+            this.txtNames.ShortcutsEnabled = true;
+            this.txtNames.Size = new System.Drawing.Size(303, 23);
+            this.txtNames.TabIndex = 17;
+            this.txtNames.UseSelectable = true;
+            this.txtNames.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNames.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtId
             // 
@@ -249,7 +249,7 @@ namespace simpleCRUD
             this.lNew.UseSelectable = true;
             this.lNew.Click += new System.EventHandler(this.lNew_Click);
             // 
-            // dtgBooks
+            // dtgCliente
             // 
             this.dtgCliente.AllowUserToAddRows = false;
             this.dtgCliente.AllowUserToDeleteRows = false;
@@ -272,7 +272,7 @@ namespace simpleCRUD
             this.dtgCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtgCliente.Location = new System.Drawing.Point(13, 17);
             this.dtgCliente.MultiSelect = false;
-            this.dtgCliente.Name = "dtgBooks";
+            this.dtgCliente.Name = "dtgCliente";
             this.dtgCliente.ReadOnly = true;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
@@ -299,13 +299,14 @@ namespace simpleCRUD
             this.actions.UseCustomForeColor = true;
             this.actions.UseStyleColors = true;
             this.actions.UseWaitCursor = true;
+            this.actions.Opening += new System.ComponentModel.CancelEventHandler(this.actions_Opening);
             // 
             // edit
             // 
             this.edit.AutoToolTip = true;
             this.edit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(92, 24);
+            this.edit.Size = new System.Drawing.Size(155, 24);
             this.edit.Text = "Edit";
             this.edit.ToolTipText = "Edit Book";
             // 
@@ -314,7 +315,7 @@ namespace simpleCRUD
             this.delete.AutoToolTip = true;
             this.delete.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(92, 24);
+            this.delete.Size = new System.Drawing.Size(155, 24);
             this.delete.Text = "Delete";
             this.delete.ToolTipText = "Delete Book";
             // 
@@ -376,7 +377,7 @@ namespace simpleCRUD
             this.tabForm.Controls.Add(this.metroLabel5);
             this.tabForm.Controls.Add(this.metroLabel3);
             this.tabForm.Controls.Add(this.txtId);
-            this.tabForm.Controls.Add(this.txtNombre);
+            this.tabForm.Controls.Add(this.txtNames);
             this.tabForm.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.tabForm.HorizontalScrollbarBarColor = true;
             this.tabForm.HorizontalScrollbarHighlightOnWheel = false;
@@ -390,51 +391,6 @@ namespace simpleCRUD
             this.tabForm.VerticalScrollbarHighlightOnWheel = false;
             this.tabForm.VerticalScrollbarSize = 10;
             this.tabForm.Click += new System.EventHandler(this.tabForm_Click);
-            // 
-            // tabData
-            // 
-            this.tabData.Controls.Add(this.dtgCliente);
-            this.tabData.HorizontalScrollbarBarColor = true;
-            this.tabData.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabData.HorizontalScrollbarSize = 10;
-            this.tabData.Location = new System.Drawing.Point(4, 34);
-            this.tabData.Name = "tabData";
-            this.tabData.Size = new System.Drawing.Size(815, 336);
-            this.tabData.TabIndex = 1;
-            this.tabData.Text = "CLIENTE LIST";
-            this.tabData.VerticalScrollbarBarColor = true;
-            this.tabData.VerticalScrollbarHighlightOnWheel = false;
-            this.tabData.VerticalScrollbarSize = 10;
-            // 
-            // txtTelephon
-            // 
-            // 
-            // 
-            // 
-            this.txtTelephon.CustomButton.Image = null;
-            this.txtTelephon.CustomButton.Location = new System.Drawing.Point(165, 1);
-            this.txtTelephon.CustomButton.Name = "";
-            this.txtTelephon.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTelephon.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTelephon.CustomButton.TabIndex = 1;
-            this.txtTelephon.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTelephon.CustomButton.UseSelectable = true;
-            this.txtTelephon.CustomButton.Visible = false;
-            this.txtTelephon.Lines = new string[0];
-            this.txtTelephon.Location = new System.Drawing.Point(210, 161);
-            this.txtTelephon.MaxLength = 32767;
-            this.txtTelephon.Name = "txtTelephon";
-            this.txtTelephon.PasswordChar = '\0';
-            this.txtTelephon.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTelephon.SelectedText = "";
-            this.txtTelephon.SelectionLength = 0;
-            this.txtTelephon.SelectionStart = 0;
-            this.txtTelephon.ShortcutsEnabled = true;
-            this.txtTelephon.Size = new System.Drawing.Size(187, 23);
-            this.txtTelephon.TabIndex = 30;
-            this.txtTelephon.UseSelectable = true;
-            this.txtTelephon.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTelephon.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtMobile
             // 
@@ -466,7 +422,52 @@ namespace simpleCRUD
             this.txtMobile.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMobile.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // frmBook
+            // txtTelephon
+            // 
+            // 
+            // 
+            // 
+            this.txtTelephon.CustomButton.Image = null;
+            this.txtTelephon.CustomButton.Location = new System.Drawing.Point(165, 1);
+            this.txtTelephon.CustomButton.Name = "";
+            this.txtTelephon.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtTelephon.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtTelephon.CustomButton.TabIndex = 1;
+            this.txtTelephon.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtTelephon.CustomButton.UseSelectable = true;
+            this.txtTelephon.CustomButton.Visible = false;
+            this.txtTelephon.Lines = new string[0];
+            this.txtTelephon.Location = new System.Drawing.Point(210, 161);
+            this.txtTelephon.MaxLength = 32767;
+            this.txtTelephon.Name = "txtTelephon";
+            this.txtTelephon.PasswordChar = '\0';
+            this.txtTelephon.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTelephon.SelectedText = "";
+            this.txtTelephon.SelectionLength = 0;
+            this.txtTelephon.SelectionStart = 0;
+            this.txtTelephon.ShortcutsEnabled = true;
+            this.txtTelephon.Size = new System.Drawing.Size(187, 23);
+            this.txtTelephon.TabIndex = 30;
+            this.txtTelephon.UseSelectable = true;
+            this.txtTelephon.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtTelephon.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // tabData
+            // 
+            this.tabData.Controls.Add(this.dtgCliente);
+            this.tabData.HorizontalScrollbarBarColor = true;
+            this.tabData.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabData.HorizontalScrollbarSize = 10;
+            this.tabData.Location = new System.Drawing.Point(4, 34);
+            this.tabData.Name = "tabData";
+            this.tabData.Size = new System.Drawing.Size(815, 336);
+            this.tabData.TabIndex = 1;
+            this.tabData.Text = "CLIENTE LIST";
+            this.tabData.VerticalScrollbarBarColor = true;
+            this.tabData.VerticalScrollbarHighlightOnWheel = false;
+            this.tabData.VerticalScrollbarSize = 10;
+            // 
+            // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -503,7 +504,7 @@ namespace simpleCRUD
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroTextBox txtAddress;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
+        private MetroFramework.Controls.MetroTextBox txtNames;
         private MetroFramework.Controls.MetroTextBox txtId;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel lblId;

@@ -36,18 +36,18 @@ namespace simpleCRUD
         public void fillDataGridView()
         {
             //instancia de la clase libro| Book
-            Cliente book = new Cliente();
+            Cliente cliente = new Cliente();
 
             clearDataGridView();
 
             dtgCliente.Columns.Add("clienteId", "CLIENTE ID");
-            dtgCliente.Columns.Add("nombres", "NOMBRES");
+            dtgCliente.Columns.Add("names", "NOMBRES");
             dtgCliente.Columns.Add("address", "DIRECCION");
             dtgCliente.Columns.Add("telephon", "TELEFONO");
             dtgCliente.Columns.Add("mobile", "CELULAR");
 
-            //llamado al medoto getBooks() de la clase Book
-            MySqlDataReader dataReader = book.getAllBooks();
+            //llamado al medoto getCliente() de la clase Book
+            MySqlDataReader dataReader = cliente.getAllCliente();
 
             //leer el resultado y mostrarlo en el datagridview
             while(dataReader.Read())
@@ -71,7 +71,7 @@ namespace simpleCRUD
         public void controlsDisable()
         {
             txtId.Enabled = false;
-            txtNombre.Enabled = false;
+            txtNames.Enabled = false;
             txtAddress.Enabled = false;
             txtTelephon.Enabled = false;
             txtMobile.Enabled = false;
@@ -82,7 +82,7 @@ namespace simpleCRUD
         public void controlsEnable()
         {
             txtId.Enabled = false;
-            txtNombre.Enabled = true;
+            txtNames.Enabled = true;
             txtAddress.Enabled = true;
             txtTelephon.Enabled = true;
             txtMobile.Enabled = true;
@@ -93,7 +93,7 @@ namespace simpleCRUD
         public void clearControls()
         {
             txtId.Text = "";
-            txtNombre.Text = "";
+            txtNames.Text = "";
             txtAddress.Text = "";
             txtTelephon.Text = "";
             txtMobile.Text = "";
@@ -105,7 +105,7 @@ namespace simpleCRUD
         {
             tabs.TabPages.Remove(tabData);//ocultar el tab de el datagridview
             tabs.TabPages.Add(tabForm); //mostrar el formulario para los datos
-            tabs.TabPages[0].Text = "EDIT BOOK";
+            tabs.TabPages[0].Text = "EDIT CLIENTE";
 
             action = "edit";
             controlsEnable();
@@ -143,7 +143,7 @@ namespace simpleCRUD
 
             txtId.Visible = false;
             lblId.Visible = false;
-            txtNombre.Focus(); //enviar enfoque al titulo
+            txtNames.Focus(); //enviar enfoque al titulo
             action = "new";
             controlsEnable();
             clearControls();
@@ -170,6 +170,11 @@ namespace simpleCRUD
         }
 
         private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actions_Opening(object sender, CancelEventArgs e)
         {
 
         }

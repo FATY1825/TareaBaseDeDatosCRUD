@@ -22,5 +22,19 @@ namespace simpleCRUD
             dataReader = conn.command.ExecuteReader(); //ejecuta la consulta
             return dataReader;
         }
+
+        //Metodo que permitira ejecutar las consusltas par insertar, editar y eliminar 
+        public void executeQuery(string query)
+        {
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            conn.command = new MySqlCommand(query, conn.openConnection());
+            adapter.InsertCommand = conn.command;
+            adapter.InsertCommand.ExecuteNonQuery(); // ejecutamos la consulta 
+            conn.command.Dispose();
+            conn.closeConnection();
+
+
+        }
     }
+
 }
