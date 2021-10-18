@@ -174,7 +174,7 @@ namespace simpleCRUD
 
             if (txtNames.Text == "")
             {
-                MetroFramework.MetroMessageBox.Show(this, "Debe escribir el titulo", "VAÑIDACION",
+                MetroFramework.MetroMessageBox.Show(this, "Debe escribir el titulo", "VALIDACION",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNames.Focus();
                 txtNames.BackColor = Color.Red;
